@@ -1,4 +1,4 @@
-## Clash for Android
+## ClashR for Android
 
 A GUI for [clash](https://github.com/Dreamacro/clash) on Android
 
@@ -39,7 +39,7 @@ See also [PRIVACY_POLICY.md](./PRIVACY_POLICY.md)
    git submodule update --init --recursive
    ```
 
-2. Install `Android SDK` ,`Android NDK` and `Golang`
+2. Install `Android SDK (include JDK)` ,`Android NDK` and `Golang`
 
 3. Configure `local.properties` 
 
@@ -49,9 +49,18 @@ See also [PRIVACY_POLICY.md](./PRIVACY_POLICY.md)
    appcenter.key=<AppCenter Key>    # Optional, from "appcenter.ms"
    ```
 
-4. Build
+4. Configure `keystore.properties`
+   
+   ```properties
+   storeFile=/path/to/your/storeFile
+   keyAlias=yourKeyAlias
+   keyPassword=yourKeyPassword
+   storePassword=yourStorePassword
+   ```
 
-   on Linux
+5. Build
+
+   on Linux/Mac
 
    ```bash
    ./gradlew build
