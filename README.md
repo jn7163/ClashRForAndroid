@@ -1,4 +1,4 @@
-## Clash for Android
+## ClashR for Android
 
 A GUI for [clash](https://github.com/Dreamacro/clash) on Android
 
@@ -49,9 +49,18 @@ See also [PRIVACY_POLICY.md](./PRIVACY_POLICY.md)
    appcenter.key=<AppCenter Key>    # Optional, from "appcenter.ms"
    ```
 
-4. Build
+4. Configure `keystore.properties`
+   
+   ```properties
+   storeFile=/path/to/your/storeFile
+   keyAlias=yourKeyAlias
+   keyPassword=yourKeyPassword
+   storePassword=yourStorePassword
+   ```
 
-   on Linux
+5. Build
+
+   on Linux/Mac
 
    ```bash
    ./gradlew build

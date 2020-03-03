@@ -7,7 +7,7 @@
     <string name="append_system_dns">追加系统 DNS</string>
     <string name="append_system_dns_summary">自动追加系统 DNS 到 Clash</string>
     <string name="application_broken">应用损坏</string>
-    <string name="application_name">Clash for Android</string>
+    <string name="application_name">ClashR for Android</string>
     <string name="auto_update">自动更新 (秒)</string>
     <string name="behavior">行为</string>
     <string name="boot">启动</string>
@@ -65,7 +65,7 @@
     <string name="invalid_url">无效的 URL</string>
     <string name="ipv6">IPv6</string>
     <string name="language">语言</string>
-    <string name="launch_name">Clash</string>
+    <string name="launch_name">ClashR</string>
     <string name="log_viewer">日志查看器</string>
     <string name="logs">日志</string>
     <string name="merge_prefix">前缀合并</string>

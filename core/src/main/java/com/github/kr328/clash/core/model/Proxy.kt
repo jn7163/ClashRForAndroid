@@ -15,6 +15,7 @@ data class Proxy(
         DIRECT,
         REJECT,
         SHADOWSOCKS,
+        SHADOWSOCKSR,
         SNELL,
         SOCKS5,
         HTTP,
@@ -30,6 +31,7 @@ data class Proxy(
                 DIRECT -> TYPE_DIRECT
                 REJECT -> TYPE_REJECT
                 SHADOWSOCKS -> TYPE_SHADOWSOCKS
+                SHADOWSOCKSR->TYPE_SHADOWSOCKSR
                 SNELL -> TYPE_SNELL
                 SOCKS5 -> TYPE_SOCKS5
                 HTTP -> TYPE_HTTP
@@ -48,6 +50,7 @@ data class Proxy(
                     TYPE_DIRECT -> DIRECT
                     TYPE_REJECT -> REJECT
                     TYPE_SHADOWSOCKS -> SHADOWSOCKS
+                    TYPE_SHADOWSOCKSR -> SHADOWSOCKSR
                     TYPE_SNELL -> SNELL
                     TYPE_SOCKS5 -> SOCKS5
                     TYPE_HTTP -> HTTP
@@ -67,6 +70,7 @@ data class Proxy(
         private const val TYPE_DIRECT = "Direct"
         private const val TYPE_REJECT = "Reject"
         private const val TYPE_SHADOWSOCKS = "Shadowsocks"
+        private const val TYPE_SHADOWSOCKSR = "ShadowsocksR"
         private const val TYPE_SNELL = "Snell"
         private const val TYPE_SOCKS5 = "Socks5"
         private const val TYPE_HTTP = "Http"
