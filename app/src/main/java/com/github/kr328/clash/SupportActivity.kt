@@ -34,6 +34,17 @@ class SupportActivity : BaseActivity() {
                 }
             }
             option(
+                title = getString(R.string.clashr),
+                summary = getString(R.string.clashr_url)
+            ) {
+                onClick {
+                    startActivity(
+                        Intent(Intent.ACTION_VIEW)
+                            .setData(Uri.parse(getString(R.string.clashr_url)))
+                    )
+                }
+            }
+            option(
                 title = getString(R.string.clash_for_android),
                 summary = getString(R.string.clash_for_android_url)
             ) {
@@ -41,6 +52,17 @@ class SupportActivity : BaseActivity() {
                     startActivity(
                         Intent(Intent.ACTION_VIEW)
                             .setData(Uri.parse(getString(R.string.clash_for_android_url)))
+                    )
+                }
+            }
+            option(
+                title = getString(R.string.clashr_for_android),
+                summary = getString(R.string.clashr_for_android_url)
+            ) {
+                onClick {
+                    startActivity(
+                        Intent(Intent.ACTION_VIEW)
+                            .setData(Uri.parse(getString(R.string.clashr_for_android_url)))
                     )
                 }
             }
@@ -71,6 +93,7 @@ class SupportActivity : BaseActivity() {
                 }
             }
 
+
             if (resources.configuration.locales.get(0)
                     .language.equals("zh", true)
             ) {
@@ -84,6 +107,18 @@ class SupportActivity : BaseActivity() {
                                 .setData(Uri.parse(getString(R.string.telegram_channel_url)))
                         )
                     }
+                }
+            }
+
+            option(
+                title = getString(R.string.mod_clashr_text),
+                summary = getString(R.string.mod_clashr_url)
+            ) {
+                onClick {
+                    startActivity(
+                        Intent(Intent.ACTION_VIEW)
+                            .setData(Uri.parse(getString(R.string.mod_clashr_url)))
+                    )
                 }
             }
         }
