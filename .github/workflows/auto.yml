@@ -1,0 +1,55 @@
+name: Auto CI
+
+on:
+  push:
+    tags: "v*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update submodules
+        run: git submodule update --init --recursive
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - uses: actions/setup-go@v1
+        with:
+          go-version: '1.14'
+#      - name: install sdkmanager
+#        working-directory: /home/runner
+#          run: |
+#            wget --quiet -O /home/runner/android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
+#            sudo unzip -d $ANDROID_HOME /home/runner/android-sdk.zip > /dev/null
+#            echo "y" | sudo $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-29'
+      - name: set up NDK
+        env:
+          ndk_version: android-ndk-r21
+        run: |
+          curl --silent --show-error --location --fail --retry 3 --output /tmp/${ndk_version}.zip https://dl.google.com/android/repository/${ndk_version}-linux-x86_64.zip
+          sudo unzip -q /tmp/${ndk_version}.zip -d /opt/android
+          rm /tmp/${ndk_version}.zip
+          touch /home/runner/work/ClashRForAndroid/ClashRForAndroid/local.properties
+          echo "ndk.dir=/opt/android/android-ndk-r21" >> /home/runner/work/ClashRForAndroid/ClashRForAndroid/local.properties
+      - name: Build with Gradle
+        env:
+          KEYSTORE_PWD: ${{ secrets.KEYSTORE_PWD }}
+          KEY_PWD: ${{ secrets.KEY_PWD }}
+        run: ./gradlew assembleRelease
+      - name: Prepare APKs
+        run: |
+          mkdir upload
+          cp app/build/outputs/apk/release/*.apk upload
+      - name: Upload Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          files: upload/*.apk
+          draft: false
+          prerelease: false
