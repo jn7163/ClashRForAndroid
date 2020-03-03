@@ -49,16 +49,7 @@ See also [PRIVACY_POLICY.md](./PRIVACY_POLICY.md)
    appcenter.key=<AppCenter Key>    # Optional, from "appcenter.ms"
    ```
 
-4. Configure `keystore.properties`
-   
-   ```properties
-   storeFile=/path/to/your/storeFile
-   keyAlias=yourKeyAlias
-   keyPassword=yourKeyPassword
-   storePassword=yourStorePassword
-   ```
-
-5. Build
+4. Build
 
    on Linux/Mac
 
