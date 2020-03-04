@@ -2,8 +2,12 @@ name: Auto CI
 
 on:
   push:
+    branches:
+      - master
     tags: "v*"
-
+  pull_request:
+    branches:
+      - master
 jobs:
   build:
 
@@ -20,12 +24,6 @@ jobs:
       - uses: actions/setup-go@v1
         with:
           go-version: '1.14'
-#      - name: install sdkmanager
-#        working-directory: /home/runner
-#          run: |
-#            wget --quiet -O /home/runner/android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
-#            sudo unzip -d $ANDROID_HOME /home/runner/android-sdk.zip > /dev/null
-#            echo "y" | sudo $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-29'
       - name: set up NDK
         env:
           ndk_version: android-ndk-r21
