@@ -35,9 +35,9 @@ type ShadowSocksROption struct {
 	Password      string `proxy:"password"`
 	Cipher        string `proxy:"cipher"`
 	Protocol      string `proxy:"protocol"`
-	ProtocolParam string `proxy:"protocol-param"`
+	ProtocolParam string `proxy:"protocolparam"`
 	Obfs          string `proxy:"obfs"`
-	ObfsParam     string `proxy:"obfs-param"`
+	ObfsParam     string `proxy:"obfsparam"`
 
 	// TODO: Add UDP support
 	// UDP bool `proxy:"udp,omitempty"`
