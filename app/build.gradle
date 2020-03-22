@@ -77,6 +77,7 @@ dependencies {
     implementation "moe.shizuku.preference:preference-simplemenu-appcompat:$gShizukuPreferenceVersion"
     implementation "com.microsoft.appcenter:appcenter-analytics:$gAppCenterVersion"
     implementation "com.microsoft.appcenter:appcenter-crashes:$gAppCenterVersion"
+    implementation 'com.twofortyfouram:android-plugin-api-for-locale:1.0.4'
 }
 
 task injectAppCenterKey() {
