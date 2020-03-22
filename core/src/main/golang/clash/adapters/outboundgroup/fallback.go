@@ -56,6 +56,10 @@ func (f *Fallback) MarshalJSON() ([]byte, error) {
 	})
 }
 
+func (f *Fallback) GetProviders() []provider.ProxyProvider {
+	return f.providers
+}
+
 func (f *Fallback) proxies() []C.Proxy {
 	elm, _, _ := f.single.Do(func() (interface{}, error) {
 		return getProvidersProxies(f.providers), nil
