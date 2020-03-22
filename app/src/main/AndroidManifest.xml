@@ -96,7 +96,6 @@
             android:label="@string/support"
             android:exported="false"
             android:configChanges="uiMode" />
-            android:label="@string/support" />
         <activity android:name=".tasker.TaskerConfigActivity"
             android:icon="@mipmap/ic_launcher">
             <intent-filter>
